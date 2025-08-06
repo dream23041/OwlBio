@@ -1,0 +1,293 @@
+@font-face {
+  font-family: 'font';
+  src: url('babapro-font-bold1.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --gradient-start: #000000; /* Черный */
+  --gradient-end: #000000; /* Черный */
+  --semi-transparent: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+  --card-bg: rgba(255, 0, 0, 0.2); /* Полупрозрачный красный для карточек */
+}
+
+body {
+  font-family: 'font', 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+}
+
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+  background: var(--semi-transparent);
+  border-radius: 10px;
+}
+
+header {
+  position: relative;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between; /* Размещаем меню и логотип по краям */
+  align-items: flex-start; /* Выравнивание по верхнему краю */
+}
+
+.logo {
+  display: flex;
+  flex-direction: column; /* Вертикальное размещение логотипа и текста */
+  align-items: center;
+  margin: 0; /* Убираем отступы */
+}
+
+.owl-logo {
+  width: 200px; /* Увеличенный размер логотипа */
+  height: 200px;
+  filter: drop-shadow(0 0 5px #ff0000) drop-shadow(0 0 10px #ff3333) drop-shadow(0 0 15px #ff6666);
+  animation: neonPulse 2s infinite alternate;
+}
+
+.logo-text {
+  font-family: 'font', 'Orbitron', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff0000;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  margin-top: 10px; /* Отступ сверху для текста */
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  color: #ff0000;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  animation: pulse 2s infinite alternate;
+  text-align: center; /* Центрируем заголовок */
+}
+
+.subtitle {
+  color: #ff3333;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  animation: fadeIn 2s;
+  text-align: center; /* Центрируем подзаголовок */
+}
+
+.menu-container {
+  position: absolute; /* Фиксируем меню в левом верхнем углу */
+  top: 20px;
+  left: 20px; /* Отступ от левого края */
+  z-index: 10; /* Убедимся, что меню выше других элементов */
+}
+
+.neon-btn-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid #ff0000;
+  color: #ff0000;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.neon-btn-circle:hover {
+  background: #ff0000;
+  color: black;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
+.menu-items {
+  display: none; /* Скрыто по умолчанию */
+  position: absolute;
+  top: 60px; /* Расположение под кнопкой */
+  left: 0; /* Выравнивание по левому краю */
+  flex-direction: column;
+  align-items: flex-start; /* Выравнивание элементов меню по левому краю */
+  gap: 10px;
+  animation: slideIn 0.3s ease forwards;
+}
+
+.menu-items.active {
+  display: flex; /* Показать при активации */
+}
+
+.neon-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: transparent;
+  color: #ff0000;
+  border: 2px solid #ff0000;
+  border-radius: 30px;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  animation: pulse 2s infinite alternate;
+}
+
+.neon-btn:hover {
+  background: #ff0000;
+  color: black;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.content-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+  border-left: 4px solid #ff0000;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s forwards;
+  color: #ffcccc;
+  position: relative;
+}
+
+.content-card:active {
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.5);
+}
+
+.content-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4), 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+.card-number {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, #ff0000, #ff3333);
+  color: black;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  margin-right: 15px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.card-title {
+  font-family: 'Orbitron', sans-serif;
+  color: #ff6666;
+  display: inline;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-content {
+  margin-top: 15px;
+  line-height: 1.6;
+  color: #ffcccc;
+}
+
+footer {
+  text-align: center;
+  margin-top: 60px;
+  padding: 20px;
+  color: #ff9999;
+  font-size: 0.9rem;
+  border-top: 1px solid #ff0000;
+}
+
+/* Анимации */
+@keyframes pulse {
+  0% { text-shadow: 0 0 10px rgba(255, 0, 0, 0.7); }
+  100% { text-shadow: 0 0 20px rgba(255, 0, 0, 0.9), 0 0 30px rgba(255, 0, 0, 0.5); }
+}
+
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes neonPulse {
+  0% {
+    filter: drop-shadow(0 0 5px #ff0000) drop-shadow(0 0 10px #ff3333) drop-shadow(0 0 15px #ff6666);
+  }
+  100% {
+    filter: drop-shadow(0 0 10px #ff0000) drop-shadow(0 0 20px #ff3333) drop-shadow(0 0 25px #ff6666);
+  }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Анимация задержки для карточек */
+.content-card:nth-child(1) { animation-delay: 0.1s; }
+.content-card:nth-child(2) { animation-delay: 0.2s; }
+.content-card:nth-child(3) { animation-delay: 0.3s; }
+.content-card:nth-child(4) { animation-delay: 0.4s; }
+
+.neon {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff0000, 0 0 20px #ff0000;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+  .neon-btn {
+    margin: 5px;
+  }
+  .owl-logo {
+    width: 60px;
+    height: 60px;
+  }
+  .menu-container {
+    position: absolute; /* Сохраняем фиксированное положение в левом верхнем углу */
+    top: 10px;
+    left: 10px;
+  }
+  header {
+    justify-content: flex-end; /* Логотип остается справа */
+    align-items: flex-start;
+    flex-wrap: wrap; /* Позволяет элементам переноситься, если нужно */
+  }
+}
