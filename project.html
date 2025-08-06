@@ -8,12 +8,60 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .bot-projects {
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 30px;
+      border: 1px solid #3a3a3a;
+      box-shadow: 0 0 15px rgba(58, 176, 255, 0.3);
+    }
+    .bot-projects h2 {
+      color: #3ab0ff;
+      margin-bottom: 15px;
+      font-family: 'Orbitron', sans-serif;
+      text-shadow: 0 0 5px #3ab0ff;
+    }
+    .bot-category {
+      margin-bottom: 20px;
+    }
+    .bot-category h3 {
+      color: #fff;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+    .bot-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .bot-list li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 20px;
+    }
+    .bot-list li:before {
+      content: "•";
+      color: #3ab0ff;
+      position: absolute;
+      left: 0;
+    }
+    .bot-link {
+      color: #3ab0ff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .bot-link:hover {
+      color: #fff;
+      text-shadow: 0 0 5px #3ab0ff;
+    }
+  </style>
 </head>
 <body>
   <div class="particles" id="particles-js"></div>
 
   <div class="container">
-    <header class="animate__animated animate__fadeInDown">
+    <header class="animate_animated animate_fadeInDown">
       <div class="logo">
         <img src="30857.svg" alt="Owl Logo" class="owl-logo">
         <span class="logo-text">BIO-Owl</span>
@@ -25,8 +73,6 @@
         <div class="menu-items">
           <a href="index.html" class="neon-btn">Главная</a>
           <a href="hobby.html" class="neon-btn">Хобби</a>
-          <a href="project.html" class="neon-btn">Проекты</a>
-          <a href="contact.html" class="neon-btn">Контакты</a>
         </div>
       </div>
     </header>
@@ -37,6 +83,35 @@
         <h2 class="card-title">Проекты</h2>
         <div class="card-content">
           Ознакомьтесь с моими последними достижениями и творческими работами.
+        </div>
+        
+        <div class="bot-projects animate_animated animate_fadeInUp">
+          <h2>Проекты</h2>
+          
+          <div class="bot-category">
+            <h3>Префикс-боты:</h3>
+            <ul class="bot-list">
+              <li><a href="https://t.me/bfgbunker_bot" class="bot-link">bfgbunker</a></li>
+              <li><a href="https://t.me/bgs2_bot" class="bot-link">bgs2</a></li>
+            </ul>
+          </div>
+          
+          <div class="bot-category">
+            <h3>Администрирование:</h3>
+            <ul class="bot-list">
+              <li><a href="https://t.me/StateWar_Bot" class="bot-link">StateWar</a></li>
+            </ul>
+          </div>
+          
+          <div class="bot-category">
+            <h3>Участие в разработке:</h3>
+            <ul class="bot-list">
+              <li><a href="https://t.me/DragonDemonic_bot" class="bot-link">DragonDemonic</a></li>
+              <li><a href="https://t.me/candy_factorybot" class="bot-link">Candy Factory</a></li>
+              <li><a href="https://t.me/Zombie_attackbot" class="bot-link">Zombie Attack</a></li>
+              <li>Раст.бот</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
